@@ -7,25 +7,26 @@
 # Data collection and preprocessing
 
 ---
-# 1. 크롤링하려는 웹 페이지 및 데이터 
-melon 홈페이지 장르별 순위권에 있는 top 50 데이터 
-원하는 데이터 :가수, 제목, 가사 
+## 0). 크롤링하려는 웹 페이지 및 데이터 
+melon 홈페이지 장르별 순위권에 있는 top 50 데이터<br> 
+
+크롤링 할 데이터 :가수, 제목, 가사 
 
 ## 1). 가수, 제목 크롤링 
-참고파일 : melon_crawling_title&singer.ipynb
+참고 : melon_crawling_title&singer.ipynb
 
 - (1). 사용 tool 소개
-BeautifulSoup, pandas
+BeautifulSoup
 
 - (2). 크롤링
 soup.find_all과 정규식을 사용해 크롤링 진행
 
 - (3). 데이터 저장 
- 이후 pandas를 사용해 데이터 프레임 형태로 저장 
+pandas를 사용해 데이터 프레임 형태로 저장 
 
 ---
 ## 2). 가사 크롤링 
-참고파일 :melon_crawling_lyrics.ipynb
+참고 :melon_crawling_lyrics.ipynb
 
 - (1). 사용 tool 소개
 Selenium, pandas
@@ -35,13 +36,13 @@ xpath를 사용해 노래고유번호(songid)값을 불러온 뒤 ,
 for 문을 통해 "https://www.melon.com/song/detail.htm?songId="뒤에 고유번호를 입력하여 가사를 가져옴
 
 - (3). 데이터 저장 
- 이후 pandas를 사용해 데이터 프레임 형태로 melon_lyrics.xlsx에 저장 
+pandas를 사용해 데이터 프레임 형태로 melon_lyrics.xlsx에 저장 
 
 
 </br>
 
 # Visualization
-참고파일 : lyrics analysis.ipynb
+참고 : lyrics analysis.ipynb
 ---
 colab 환경에서 진행 
 - 1. 사용 tool 소개
@@ -83,6 +84,7 @@ plt.show()
 
 - 3. Wordcloud
 wordcloud와 matplotlib을 사용해 가사 빈도수 시각화 
+
 ~~~python
 wordcloud = WordCloud(font_path=my_path, 
                       background_color='white', 
@@ -108,4 +110,5 @@ plt.show()
 
 
 ---
+
 
