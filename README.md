@@ -1,6 +1,3 @@
-# Melonchart
-Melonchart 크롤링 및 Konply- Mecab 형태소분석과 wordcloud 시각화 (임시)👻
-
 # analysis_of_kpop_lyrics_by_genre
 
 장르별 한국대중음악 가사 분석
@@ -14,30 +11,30 @@ Melonchart 크롤링 및 Konply- Mecab 형태소분석과 wordcloud 시각화 (�
 melon 홈페이지 장르별 순위권에 있는 top 50 데이터 
 원하는 데이터 :가수, 제목, 가사 
 
-## 1. 가수, 제목 크롤링 
+## 1). 가수, 제목 크롤링 
 참고파일 : melon_crawling_title&singer.ipynb
 
-- 1. 사용 tool 소개
+- (1). 사용 tool 소개
 BeautifulSoup, pandas
 
-- 2. 크롤링
+- (2). 크롤링
 soup.find_all과 정규식을 사용해 크롤링 진행
 
-- 3. 데이터 저장 
+- (3). 데이터 저장 
  이후 pandas를 사용해 데이터 프레임 형태로 저장 
 
 ---
-## 2. 가사 크롤링 
+## 2). 가사 크롤링 
 참고파일 :melon_crawling_lyrics.ipynb
 
-- 1. 사용 tool 소개
+- (1). 사용 tool 소개
 Selenium, pandas
 
-- 2. 크롤링
+- (2). 크롤링
 xpath를 사용해 노래고유번호(songid)값을 불러온 뒤 , 
 for 문을 통해 "https://www.melon.com/song/detail.htm?songId="뒤에 고유번호를 입력하여 가사를 가져옴
 
-- 3. 데이터 저장 
+- (3). 데이터 저장 
  이후 pandas를 사용해 데이터 프레임 형태로 melon_lyrics.xlsx에 저장 
 
 
@@ -53,15 +50,15 @@ konply-mecab, pandas, wordcloud, matplotlib
 - 2. 형태소 분석 
 은전한닢(mecab)을 사용한 형태소 분석 
 가사를 nouns, pos, morphs로 나눠서 출력해보기
-'''python
+~~~python
 tag = Mecab()
 para = lyrics
 print(tag.nouns(para))
 print(tag.pos(para))
 print(tag.morphs(para))
-'''
+~~~
 가사 데이터(nouns)를 counter하여 명사가 가장 많은 개수를 세어보기
-'''python
+~~~python
 nouns = tag.nouns(para)
 nouns = [n for n in nouns if len(n) > 1]
 
@@ -71,33 +68,33 @@ count = Counter(nouns)
 # count_top10
 tags = count.most_common(10)
 tags
-'''
+~~~
 한글자(ex. 너, 나, 등)는 제거 
 이후, nltk를 사용하여 빈도수 plt를 그려보려 했으나 한글이 깨지는 에러가 발생
 여러차례 시도해보았지만 실패,, 
 
-'''python
+~~~python
 common = Text(tag.nouns(para), name="common")
 common.plot(10)
 fig = plt.figure(figsize=(20,20))
 plt.rc('font', family='NanumBarunGothic') 
 plt.show()
-'''
+~~~
 
 - 3. Wordcloud
 wordcloud와 matplotlib을 사용해 가사 빈도수 시각화 
-'''python
+~~~python
 wordcloud = WordCloud(font_path=my_path, 
                       background_color='white', 
                       width=1200, 
                       height=800).generate_from_frequencies(dict(count))
-'''
-'''python
+~~~
+~~~python
 fig = plt.figure(figsize=(10,10))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 plt.show()
-'''
+~~~
 </br>
 
 # Conclusions and Inferences
@@ -111,3 +108,4 @@ plt.show()
 
 
 ---
+
