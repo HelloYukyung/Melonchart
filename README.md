@@ -9,7 +9,6 @@
 ---
 ## 0. 크롤링하려는 웹 페이지 및 데이터 
 크롤링 웹 페이지 :melon 홈페이지 장르별 순위권에 있는 장르별 top 50 데이터 <br> 
-![image](https://user-images.githubusercontent.com/49505843/129847975-78e1c98f-b779-46d6-b431-566578585db1.png)
 
 크롤링 할 데이터 :가수, 제목, 가사 
 
@@ -99,6 +98,8 @@ count = Counter(nouns)
 tags = count.most_common(10)
 tags
 ~~~
+![image](https://user-images.githubusercontent.com/49505843/129848354-8228582d-325e-4d30-8f13-1008e1996061.png)
+<br>
 한글자(ex. 너, 나, 등)는 제거 
 이후, nltk를 사용하여 빈도수 plt를 그려보려 했으나 한글이 깨지는 에러가 발생
 여러차례 시도해보았지만 실패,, 
@@ -137,7 +138,7 @@ plt.show()
 그 다음으로 '그대', '우리', '시간' 순으로 많이 등장한 것을 볼 수 있었다.
 단어만 보았을때 딱 봐도 발라드, 사랑노래가 연상이 되지않은가?❤
 나중에 발라드 장르의 노래가사를 만든다면 다음 단어를 참고해도 좋을 것같다. 
-![image](https://user-images.githubusercontent.com/49505843/129848354-8228582d-325e-4d30-8f13-1008e1996061.png)
+
 
 
 
